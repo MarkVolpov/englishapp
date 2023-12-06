@@ -1,7 +1,9 @@
+import { useForm } from "react-hook-form"
 
 import Button from '../UI/Button/Button'
+import InputRadio from '../UI/InputRadio/InputRadio'
+import { levels } from './constants'
 import './InputLevel.scss'
-import { useForm } from "react-hook-form"
 
 
 const InputLevel = () => {
@@ -13,7 +15,7 @@ const InputLevel = () => {
     } = useForm()
 
     const onLevelSubmit = (dataForm) => {
-        
+
         if(dataForm.level === null){
             alert('Choose your english level')
         }else{
@@ -21,70 +23,32 @@ const InputLevel = () => {
         }
     }
 
+    const onChange = (event) => {
+        console.log(eventTarget.value)
+    }
 
-   
     return(
         <>
             <form onSubmit={handleSubmit(onLevelSubmit)} className = "formLevels">
-                <label htmlFor="LevelA" className = "levelA">
-                    <input className='LevelA'
-                        {...register("level")}
-                        type="radio"
-                        name="level"
-                        value="A1"
-                        id="LevelA2"
-                    />
-                    Level A1
-                    <input
-                        {...register("level")}
-                        type="radio"
-                        name="level"
-                        value="A2"
-                        id="LevelA2"
-                    />
-                    Level A2
-                    <br/>
-                </label>
-                <label htmlFor="LevelB" className='levelB'>
-                    <input
-                        {...register("level")}
-                        type="radio"
-                        name="level"
-                        value="B1"
-                        id="LevelB1"
-                    />
-                    Level B1
-                    <input
-                        {...register("level")}
-                        type="radio"
-                        name="level"
-                        value="B1"
-                        id="LevelB1"
-                    />
-                    Level B2
-                    <br/>
-                </label>
-                <label htmlFor="LevelC" className = "levelC">
-                    <input
-                        {...register("level")}
-                        type="radio"
-                        name="level"
-                        value="C1"
-                        id="LevelC1"
-                    />
-                    Level C1
-                    
-                    <input
-                        {...register("level")}
-                        type="radio"
-                        name="level"
-                        value="C2"
-                        id="LevelC2"
-                    />
-                    Level C2
-                    <br/>
-                    
-                </label>
+
+                <div className="formLevels__list">
+                    {
+                        levels.map((item)=> {
+                            return (
+                                <InputRadio
+                                    label={item.label}
+                                    value={item.value}
+                                    name='level'
+                                    permission={item.permission}
+                                    onChange={onChange}
+                                    {...register("level")}
+                                />
+                            )
+                        })
+                    }
+                </div>
+
+
                 <Button type='submit' size='big'>
                     Enter
                 </Button>
