@@ -1,6 +1,7 @@
-// .levelA{
-//     background: red;
-// }
-// .levelB{
-   
-// }
+.formLevels {
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+}

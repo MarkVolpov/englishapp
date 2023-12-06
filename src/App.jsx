@@ -1,11 +1,11 @@
 import './App.scss'
-import InputLevel from './components/InputLevel/InputLevel'
+import Home from './containers/Home'
 
 function App() {
 
   return (
     <>
-      <InputLevel />
+      <Home />
     </>
   )
 }
