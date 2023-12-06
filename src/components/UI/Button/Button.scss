@@ -1,0 +1,46 @@
+
+.btn {
+   
+    &--small {
+        font-size: 1rem;
+        background: #7B66FF;
+        
+    }
+    &--medium{
+        font-size: 2rem;
+        border-radius: 5px;
+        background: #5FBDFF;
+    }
+    &--big {
+        font-size: 4rem;
+        border-radius: 5px;
+        outline: none;
+        border: none;
+        background: #96EFFF;
+        
+    }
+}
+
+// submit, button, disabled
+
+.btn {
+    &--small:hover {
+        background: #F4EEEE;
+        
+    }
+    &--medium:hover{
+        background: #FFDBAA;
+
+    }
+    &--big:hover {
+        background: #FFB7B7;
+        color:white;
+        
+    }
+}
+.btn--medium,
+.btn--big,
+.btn--small{
+    margin-left: 10px;
+    margin-top: 20px;
+}
